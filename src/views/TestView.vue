@@ -9,8 +9,8 @@
         <img src="" alt="" />
       </div>
       <div class="btnset">
-        <button @click="btnClick(1)">1</button>
-        <button @click="btnClick(2)">2</button>
+        <button @click="btnClick(1)">{{ answerText(0) }}</button>
+        <button @click="btnClick(2)">{{ answerText(1) }}</button>
       </div>
     </div>
   </div>
@@ -21,7 +21,34 @@ export default {
   data() {
     return {
       progressper: 1,
-      question: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      question: [
+        "1번문제",
+        "2번문제",
+        "3번문제",
+        "4번문제",
+        "5번문제",
+        "6번문제",
+        "7번문제",
+        "8번문제",
+        "9번문제",
+        "10번문제",
+        "11번문제",
+        "12번문제",
+      ],
+      answer: [
+        ["1z", "2z"],
+        ["1d", "2d"],
+        ["1", "2"],
+        ["1", "2"],
+        ["1", "2"],
+        ["1", "2"],
+        ["1", "2"],
+        ["1", "2"],
+        ["1", "2"],
+        ["1", "2"],
+        ["1", "2"],
+        ["1", "2"],
+      ],
       result: [],
     };
   },
@@ -31,6 +58,9 @@ export default {
     },
     questionText() {
       return this.question[this.progressper - 1];
+    },
+    answerText() {
+      return (num) => this.answer[this.progressper - 1][num];
     },
   },
   methods: {

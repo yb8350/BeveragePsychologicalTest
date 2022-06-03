@@ -66,10 +66,16 @@ export default {
   methods: {
     btnClick(num) {
       this.result.push(num);
-      this.progressper += 1;
-      if (this.progressper === 13) {
-        console.log("wow");
-      }
+
+      if (this.progressper + 1 === 13) {
+        let str = "";
+        str += this.result[0] + this.result[1] + this.result[2] < 5 ? "I" : "E";
+        str += this.result[3] + this.result[4] + this.result[5] < 5 ? "N" : "S";
+        str += this.result[6] + this.result[7] + this.result[8] < 5 ? "F" : "T";
+        str +=
+          this.result[9] + this.result[10] + this.result[11] < 5 ? "J" : "P";
+        this.$router.push({ name: "result", params: { res: str } });
+      } else this.progressper += 1;
     },
   },
 };

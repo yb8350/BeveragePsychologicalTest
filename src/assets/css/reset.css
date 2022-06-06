@@ -108,6 +108,8 @@ section {
 }
 body {
   line-height: 1;
+  background-color: #DDC6B6;
+  color: #202020;
 }
 menu,
 ol,
@@ -132,7 +134,7 @@ table {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #202020;
 }
 
 * {

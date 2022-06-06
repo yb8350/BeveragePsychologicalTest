@@ -1,6 +1,10 @@
 <template>
   <div class="test">
-    <div class="progressbar">진행상황 : {{ progress }} / 12</div>
+    <div class="headbar">
+      <div class="back">&lt;</div>
+      <div>{{ progress }} / 12</div>
+    </div>
+    <div class="progressbar"></div>
     <div class="choice">
       <div class="question">
         <p>{{ questionText }}</p>
@@ -98,6 +102,24 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 15px;
+}
+.headbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progressbar {
+  width: 100%;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
 }
 
 .choice {
@@ -110,5 +132,20 @@ export default {
 .btnset {
   display: flex;
   flex-direction: column;
+}
+.btnset button {
+  height: 50px;
+  border-radius: 25px;
+  background-color: #fff;
+  border: 2px dashed #d8d8d8;
+  margin: 5px 0;
+}
+.btnset button:hover {
+  background-color: #ffa3a3;
+  border: 2px dashed #d87d7d;
+  color: white;
+}
+.image img {
+  width: 90%;
 }
 </style>

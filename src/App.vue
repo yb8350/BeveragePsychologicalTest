@@ -15,7 +15,12 @@ export default {
 </script>
 <style>
 @import url("@/assets/css/reset.css");
+
 #main {
-  margin-top: 80px;
+  position: relative;
+  top: 80px;
+}
+body {
+  background-color: #ddc6b6;
 }
 </style>

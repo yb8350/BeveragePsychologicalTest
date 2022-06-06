@@ -16,6 +16,11 @@ const routes = [
     component: () => import("@/views/TestView.vue"),
   },
   {
+    path: "/loading",
+    name: "loading",
+    component: () => import("@/views/LoadingView.vue"),
+  },
+  {
     path: "/result/:res",
     name: "result",
     component: () => import("@/views/ResultView.vue"),

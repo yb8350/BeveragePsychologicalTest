@@ -16,10 +16,6 @@ export default {
 <style>
 @import url("@/assets/css/reset.css");
 
-#main {
-  position: relative;
-  top: 80px;
-}
 body {
   background-color: #ddc6b6;
 }

@@ -22,6 +22,10 @@ export default {
       return this.isHome;
     },
   },
+  created() {
+    if (this.$route.name === "home") this.isHome = true;
+    else this.isHome = false;
+  },
 };
 </script>
 <style>

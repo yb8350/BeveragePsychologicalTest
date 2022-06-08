@@ -121,7 +121,9 @@ export default {
       }
     },
     backbtn() {
-      if (this.progressper > 1) {
+      if (this.progressper === 1) {
+        this.$router.push("/");
+      } else if (this.progressper > 1) {
         this.progressper--;
         this.result.pop();
         document.querySelector(

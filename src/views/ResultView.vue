@@ -203,6 +203,7 @@ mark {
 .main__title h1 {
   font-size: 30px;
   margin-bottom: 20px;
+  word-break: keep-all;
 }
 .main__title h2 {
   position: relative;
@@ -229,6 +230,7 @@ mark {
 }
 .main__desc ul li {
   margin-bottom: 16px;
+  word-break: keep-all;
 }
 .main__desc ul li:last-child {
   margin-bottom: 0;

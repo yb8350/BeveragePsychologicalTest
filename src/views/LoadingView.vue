@@ -81,7 +81,7 @@ export default {
   background-color: #f8f4f0;
   max-width: 600px;
   width: 90%;
-  margin: 20px auto;
+  margin: 40px auto;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
@@ -98,6 +98,7 @@ button {
   padding: 15px;
   font-size: 20px;
   cursor: pointer;
+  color: #202020;
 }
 button:hover {
   background-color: #ffa3a3;

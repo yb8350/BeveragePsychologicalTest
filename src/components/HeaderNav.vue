@@ -6,7 +6,7 @@
       :src="require(`@/assets/img/${bgmimg}.png`)"
       @click="music"
       alt="bgm"
-      width="30px"
+      width="40px"
       class="bgmimg"
     />
   </header>
@@ -64,17 +64,5 @@ header {
 .bgmimg {
   margin-right: 10px;
   cursor: pointer;
-}
-
-@media screen and (max-width: 576px) {
-  header {
-    height: 40px;
-    font-size: 16px;
-  }
-}
-@media screen and (min-width: 576px) and (max-width: 768px) {
-  header {
-    height: 60px;
-  }
 }
 </style>

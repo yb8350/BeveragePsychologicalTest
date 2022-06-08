@@ -154,6 +154,7 @@ mark {
   position: relative;
   text-align: center;
   padding-bottom: 80px;
+  margin-top: 20px;
 }
 
 .book {
@@ -340,6 +341,7 @@ mark {
   background-color: #fff;
   border: 2px dashed #d8d8d8;
   font-size: 30px;
+  color: #202020;
 }
 .btn.btn--replay {
 }

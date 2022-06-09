@@ -37,20 +37,20 @@
         <div class="combi__good">
           <h3>환상의 조합</h3>
           <img
-            :src="require(`@/assets/img/result/${res}.png`)"
+            :src="require(`@/assets/img/result/${print.good[0]}.png`)"
             alt=""
             srcset=""
           />
-          <p>{{ print.good }}</p>
+          <p>{{ print.good[1] }}</p>
         </div>
         <div class="combi__bad">
           <h3>환장의 조합</h3>
           <img
-            :src="require(`@/assets/img/result/${res}.png`)"
+            :src="require(`@/assets/img/result/${print.bad[0]}.png`)"
             alt=""
             srcset=""
           />
-          <p>{{ print.bad }}</p>
+          <p>{{ print.bad[1] }}</p>
         </div>
       </div>
     </article>

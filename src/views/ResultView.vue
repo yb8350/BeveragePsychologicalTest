@@ -131,14 +131,6 @@ export default {
 </script>
 
 <style scoped>
-/* .highlight {
-  width: 100%;
-  height: 80%;
-  position: absolute;
-  right: -3px;
-  bottom: 2px;
-  background-color: #ffa3a3;
-} */
 mark {
   display: inline-block;
   text-decoration: none;
@@ -154,6 +146,7 @@ mark {
   position: relative;
   text-align: center;
   padding-bottom: 80px;
+  margin-top: 20px;
 }
 
 .book {
@@ -203,6 +196,7 @@ mark {
 .main__title h1 {
   font-size: 30px;
   margin-bottom: 20px;
+  word-break: keep-all;
 }
 .main__title h2 {
   position: relative;
@@ -229,6 +223,7 @@ mark {
 }
 .main__desc ul li {
   margin-bottom: 16px;
+  word-break: keep-all;
 }
 .main__desc ul li:last-child {
   margin-bottom: 0;
@@ -259,9 +254,6 @@ mark {
   background-color: #ffffff;
   border-radius: 50%;
   margin-bottom: 10px;
-}
-.combi__good {
-  margin-right: 20px;
 }
 
 /* 나와 같은 유형의 음료는? */
@@ -338,6 +330,7 @@ mark {
   background-color: #fff;
   border: 2px dashed #d8d8d8;
   font-size: 30px;
+  color: #202020;
 }
 .btn.btn--replay {
 }
@@ -376,6 +369,10 @@ footer {
     bottom: -68px;
   }
 
+  .combi__desc {
+    justify-content: space-between;
+  }
+
   .title img {
     width: 200px;
   }
@@ -396,9 +393,11 @@ footer {
     bottom: -68px;
   }
 
+  .combi__desc {
+    flex-direction: column;
+  }
   .combi__good {
-    margin-right: 0;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 
   .share__type a {

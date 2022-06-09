@@ -1,7 +1,7 @@
 <template>
   <div class="result">
+    <!-- 결과 음료 -->
     <article class="book">
-      <!-- main__title -->
       <div class="main__title">
         <h1>{{ title }}</h1>
         <img :src="require(`@/assets/img/result/${res}.png`)" alt="" />
@@ -9,7 +9,6 @@
           <span v-for="(tag, idx) in tags" :key="tag">
             <mark>{{ addHash[idx] }}</mark>
           </span>
-          <!-- <div class="highlight"></div> -->
         </h2>
       </div>
       <div class="main__desc">
@@ -20,11 +19,10 @@
       </div>
     </article>
 
+    <!-- 유형별 궁합 -->
     <article class="book">
-      <!-- combi -->
       <h2 class="combi__title">
         <span><mark>유형별 궁합</mark></span>
-        <!-- <div class="highlight"></div> -->
       </h2>
       <div class="combi__desc">
         <div class="combi__good">
@@ -47,11 +45,11 @@
         </div>
       </div>
     </article>
+
+    <!-- 나와 같은 유형의 음료는? -->
     <article class="book">
-      <!-- type -->
       <h2 class="type__title">
         <span><mark>나와 같은 유형의 음료는?</mark></span>
-        <!-- <div class="highlight"></div> -->
       </h2>
       <div class="type__desc">
         <p>{{ title }}</p>
@@ -59,10 +57,10 @@
       </div>
     </article>
 
+    <!-- 내 결과 공유하기 -->
     <article class="share">
       <h2 class="share__title">
         <span><mark>내 결과 공유하기</mark></span>
-        <!-- <div class="highlight"></div> -->
       </h2>
       <div class="share__type">
         <a v-for="type in shareType" :key="type.type" :href="type.link">
@@ -75,6 +73,7 @@
       </div>
     </article>
 
+    <!-- 다시하기 -->
     <article class="btn-group">
       <button class="btn btn--replay">다시하기</button>
       <button class="btn btn--other">다른 유형 보러가기</button>
@@ -85,7 +84,6 @@
 </template>
 
 <script>
-// ESFP
 export default {
   data() {
     return {

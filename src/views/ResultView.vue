@@ -1,5 +1,14 @@
 <template>
   <div class="result">
+    <!-- 위로 가기 버튼 -->
+    <div class="toTop">
+      <img
+        :src="require(`@/assets/img/result/icon-upward.png`)"
+        alt="to top icon"
+        srcset=""
+      />
+    </div>
+
     <!-- 결과 음료 -->
     <article class="book">
       <div class="main__title">
@@ -122,6 +131,12 @@ export default {
       return this.ratio + "%";
     },
   },
+  mounted() {
+    let toTopEl = document.querySelector(".toTop");
+    toTopEl.addEventListener("click", function () {
+      window.scrollTo(0, 0);
+    });
+  },
   created() {
     this.res = this.$route.params.res;
   },
@@ -129,6 +144,22 @@ export default {
 </script>
 
 <style scoped>
+.toTop {
+  width: 50px;
+  height: 50px;
+  padding-top: 16px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2;
+  background-color: #f8f4f0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+.toTop img {
+  width: 20px;
+}
+
 mark {
   display: inline-block;
   text-decoration: none;
@@ -174,10 +205,10 @@ mark {
   background: url("../assets/img/result/bookwire.png") no-repeat;
   background-size: 100%;
 }
-.book:nth-child(3) {
+.book:nth-child(4) {
   margin-bottom: 40px;
 }
-.book:nth-child(3)::after {
+.book:nth-child(4)::after {
   background: none;
 }
 
@@ -360,6 +391,17 @@ footer {
   }
 }
 @media screen and (max-width: 576px) {
+  .toTop {
+    width: 40px;
+    height: 40px;
+    padding-top: 13px;
+    right: 10px;
+    bottom: 10px;
+  }
+  .toTop img {
+    width: 16px;
+  }
+
   .book {
     margin: 15px auto;
   }

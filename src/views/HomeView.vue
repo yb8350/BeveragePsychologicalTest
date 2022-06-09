@@ -8,7 +8,7 @@
 
       <img
         class="randomImg"
-        :src="require(`@/assets/img/result/INTJ.png`)"
+        :src="require(`@/assets/img/result/ENFT.png`)"
         alt="음료 랜덤 이미지"
       />
       <button class="btn btn--start" @click="testStart">시작하기</button>

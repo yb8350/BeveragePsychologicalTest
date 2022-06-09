@@ -1,7 +1,16 @@
 <template>
   <div class="result">
+    <!-- 위로 가기 버튼 -->
+    <div class="toTop">
+      <img
+        :src="require(`@/assets/img/result/icon-upward.png`)"
+        alt="to top icon"
+        srcset=""
+      />
+    </div>
+
+    <!-- 결과 음료 -->
     <article class="book">
-      <!-- main__title -->
       <div class="main__title">
         <h1>{{ print.title }}</h1>
         <img :src="require(`@/assets/img/result/${res}.png`)" alt="" />
@@ -9,7 +18,6 @@
           <span v-for="(tag, idx) in print.tags" :key="tag">
             <mark>{{ addHash[idx] }}</mark>
           </span>
-          <!-- <div class="highlight"></div> -->
         </h2>
       </div>
       <div class="main__desc">
@@ -20,11 +28,10 @@
       </div>
     </article>
 
+    <!-- 유형별 궁합 -->
     <article class="book">
-      <!-- combi -->
       <h2 class="combi__title">
         <span><mark>유형별 궁합</mark></span>
-        <!-- <div class="highlight"></div> -->
       </h2>
       <div class="combi__desc">
         <div class="combi__good">
@@ -47,11 +54,11 @@
         </div>
       </div>
     </article>
+
+    <!-- 나와 같은 유형의 음료는? -->
     <article class="book">
-      <!-- type -->
       <h2 class="type__title">
         <span><mark>나와 같은 유형의 음료는?</mark></span>
-        <!-- <div class="highlight"></div> -->
       </h2>
       <div class="type__desc">
         <p>{{ print.title }}</p>
@@ -59,10 +66,10 @@
       </div>
     </article>
 
+    <!-- 내 결과 공유하기 -->
     <article class="share">
       <h2 class="share__title">
         <span><mark>내 결과 공유하기</mark></span>
-        <!-- <div class="highlight"></div> -->
       </h2>
       <div class="share__type">
         <a v-for="type in shareType" :key="type.type" :href="type.link">
@@ -75,6 +82,7 @@
       </div>
     </article>
 
+    <!-- 다시하기 -->
     <article class="btn-group">
       <button class="btn btn--replay">다시하기</button>
       <button class="btn btn--other">다른 유형 보러가기</button>
@@ -115,18 +123,32 @@ export default {
       return this.ratio + "%";
     },
   },
+  mounted() {
+    let toTopEl = document.querySelector(".toTop");
+    toTopEl.addEventListener("click", function () {
+      window.scrollTo(0, 0);
+    });
+  },
 };
 </script>
 
 <style scoped>
-/* .highlight {
-  width: 100%;
-  height: 80%;
-  position: absolute;
-  right: -3px;
-  bottom: 2px;
-  background-color: #ffa3a3;
-} */
+.toTop {
+  width: 50px;
+  height: 50px;
+  padding-top: 16px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2;
+  background-color: #f8f4f0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+.toTop img {
+  width: 20px;
+}
+
 mark {
   display: inline-block;
   text-decoration: none;
@@ -172,10 +194,10 @@ mark {
   background: url("../assets/img/result/bookwire.png") no-repeat;
   background-size: 100%;
 }
-.book:nth-child(3) {
+.book:nth-child(4) {
   margin-bottom: 40px;
 }
-.book:nth-child(3)::after {
+.book:nth-child(4)::after {
   background: none;
 }
 
@@ -250,9 +272,6 @@ mark {
   background-color: #ffffff;
   border-radius: 50%;
   margin-bottom: 10px;
-}
-.combi__good {
-  margin-right: 20px;
 }
 
 /* 나와 같은 유형의 음료는? */
@@ -361,11 +380,26 @@ footer {
   }
 }
 @media screen and (max-width: 576px) {
+  .toTop {
+    width: 40px;
+    height: 40px;
+    padding-top: 13px;
+    right: 10px;
+    bottom: 10px;
+  }
+  .toTop img {
+    width: 16px;
+  }
+
   .book {
     margin: 15px auto;
   }
   .book::after {
     bottom: -68px;
+  }
+
+  .combi__desc {
+    justify-content: space-between;
   }
 
   .title img {
@@ -388,9 +422,11 @@ footer {
     bottom: -68px;
   }
 
+  .combi__desc {
+    flex-direction: column;
+  }
   .combi__good {
-    margin-right: 0;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 
   .share__type a {

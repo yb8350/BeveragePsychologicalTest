@@ -29,7 +29,7 @@
         </div>
       </article>
     </div>
-    <!-- FooterView -->
+    <button class="btn--start" @click="testStart">시작하기</button>
     <footer>copyrigth (C) 앞잡이들</footer>
   </div>
 </template>
@@ -38,17 +38,6 @@
 export default {
   name: "HomeView",
   components: {},
-  data() {
-    return {
-      shareType: [
-        { type: "link", link: "javascript:void(0)" },
-        { type: "kakao", link: "javascript:void(0)" },
-        { type: "instagram", link: "javascript:void(0)" },
-        { type: "facebook", link: "javascript:void(0)" },
-        { type: "twitter", link: "javascript:void(0)" },
-      ],
-    };
-  },
   methods: {
     testStart() {
       this.$router.push("test");
@@ -62,144 +51,70 @@ export default {
 </script>
 
 <style scoped>
-root {
-  position: relative;
-}
-
-mark {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: normal;
-  color: #815854;
-  background: linear-gradient(to top, #ffa3a3 80%, transparent 50%);
-}
-
 .home {
   width: 90%;
+  height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   color: #815854;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
-
 .title {
-  margin-bottom: 20px;
+  margin-bottom: 80px;
 }
 .title__main {
-  font-size: 50px;
+  font-size: 60px;
   margin-bottom: 20px;
 }
 .title__sub {
-  font-size: 30px;
-}
-
-.randomImg {
-  width: 200px;
-  margin-bottom: 20px;
-}
-
-.btn {
-  padding: 14px 50px;
-  padding-top: 20px;
-  border-radius: 30px;
-  background-color: #fff;
-  border: 2px dashed #d8d8d8;
-  font-size: 30px;
+  font-size: 40px;
+  line-height: 50px;
 }
 .btn--start {
+  width: 200px;
+  height: 80px;
   font-size: 30px;
+  line-height: 80px;
   color: #815854;
   background-color: transparent;
   border: 3px solid #815854;
   border-radius: 5px;
-  margin-bottom: 60px;
 }
 .btn--start:hover {
   color: #ffffff;
   background-color: #815854;
 }
-
-/* 테스트 공유하기 */
-.share {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.share__title {
-  position: relative;
-  margin-bottom: 20px;
-}
-.share__title h2 {
-  position: relative;
-  font-size: 24px;
-}
-.share__title span {
-  position: relative;
-  z-index: 1;
-}
-.share__type {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.share__type a {
-  width: 40px;
-  height: 40px;
-  margin-right: 20px;
-  border-radius: 50%;
-}
-.share__type a:last-child {
-  margin-right: 0;
-}
-.share__type a img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
 footer {
   position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translate(-50%, -50%);
-  color: #815854;
+  bottom: 10px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-height: 576px) {
+  .title {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .title__main {
+    font-size: 40px;
+  }
+  .title__sub {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .btn--start {
+    width: 150px;
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 768px) {
   .title__main {
     font-size: 50px;
   }
   .title__sub {
-    font-size: 30px;
-  }
-}
-@media screen and (max-width: 420px) {
-  .title__main {
-    font-size: 32px;
-  }
-  .title__sub {
-    font-size: 22px;
-  }
-
-  .btn {
-    padding: 10px 40px;
-    padding-top: 16px;
-    font-size: 24px;
-  }
-
-  .share__type a {
-    margin-right: 10px;
-  }
-  .share__type a img {
-    width: 40px;
-    height: 40px;
+    font-size: 40px;
   }
 }
 </style>

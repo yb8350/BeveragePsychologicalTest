@@ -12,10 +12,10 @@
     <!-- 결과 음료 -->
     <article class="book">
       <div class="main__title">
-        <h1>{{ title }}</h1>
+        <h1>{{ print.title }}</h1>
         <img :src="require(`@/assets/img/result/${res}.png`)" alt="" />
         <h2>
-          <span v-for="(tag, idx) in tags" :key="tag">
+          <span v-for="(tag, idx) in print.tags" :key="tag">
             <mark>{{ addHash[idx] }}</mark>
           </span>
         </h2>
@@ -23,7 +23,7 @@
       <div class="main__desc">
         <div>당신은...</div>
         <ul>
-          <li v-for="d in description" :key="d">{{ d }}</li>
+          <li v-for="d in print.description" :key="d">{{ d }}</li>
         </ul>
       </div>
     </article>
@@ -41,7 +41,7 @@
             alt=""
             srcset=""
           />
-          <p>{{ good }}</p>
+          <p>{{ print.good }}</p>
         </div>
         <div class="combi__bad">
           <h3>환장의 조합</h3>
@@ -50,7 +50,7 @@
             alt=""
             srcset=""
           />
-          <p>{{ bad }}</p>
+          <p>{{ print.bad }}</p>
         </div>
       </div>
     </article>
@@ -61,7 +61,7 @@
         <span><mark>나와 같은 유형의 음료는?</mark></span>
       </h2>
       <div class="type__desc">
-        <p>{{ title }}</p>
+        <p>{{ print.title }}</p>
         <p>{{ addPercentage }}</p>
       </div>
     </article>
@@ -87,30 +87,17 @@
       <button class="btn btn--replay">다시하기</button>
       <button class="btn btn--other">다른 유형 보러가기</button>
     </article>
-
-    <footer>copyrigth (C) 앞잡이들</footer>
+    <footer>copyright (C) 앞잡이들</footer>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
       res: "",
-      title: "깨끗하게 맑게 자신있게! 이온 음료",
-      tags: ["단순", "활발", "할일_미루기_대장", "분위기메이커"],
-      description: [
-        "상대방이 재미없는 말을 해도 반응을 엄청 잘 해줘요. 그런데 속으로는 다른 생각할 때도 종종 있어요.",
-        "할 일을 끝까지 미루고 미루다가 발등에 불이 떨어져야 시작해요. 그런데 어떻게 되기는 해서 다음 번에도 또 미루고 있어요.",
-        "사람들에게 인정 받고 싶고 주목 받고 싶어요.",
-        "틀에 박힌 건 딱 질색이에요.",
-        "사람들이 좋긴 한데, 나가는 게 귀찮은 건 어쩔 수 없어요.",
-        "처음 만났을 때부터 자신의 높은 텐션을 보여주진 않지만, 친해지고 나면 누구보다 활발하고 텐션이 하늘을 찔러요.",
-        "자신이 오늘만 사는 것 같다고 생각해 본 적이 있어요.",
-        "친구들에게 깜짝 이벤트를 해주는 걸 좋아해요. 물론 내가 받는 것도 즐거워요.",
-      ],
-      good: "인간 활력소 라임 레몬 티",
-      bad: "전통을 중시하는 녹차",
+      print: null,
       ratio: 33.3,
       shareType: [
         { type: "link", link: "javascript:void(0)" },
@@ -121,9 +108,14 @@ export default {
       ],
     };
   },
+  created() {
+    this.res = this.$route.params.res;
+    this.print = this.result[this.res];
+  },
   computed: {
+    ...mapState("resultStore", ["result"]),
     addHash: function () {
-      return this.tags.map(function (tag) {
+      return this.print.tags.map(function (tag) {
         return "#" + tag;
       });
     },
@@ -136,9 +128,6 @@ export default {
     toTopEl.addEventListener("click", function () {
       window.scrollTo(0, 0);
     });
-  },
-  created() {
-    this.res = this.$route.params.res;
   },
 };
 </script>

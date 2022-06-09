@@ -1,9 +1,8 @@
 <template>
   <div class="loading">
     <span class="text"></span>
-    {{ cntr }}
-    <div v-if="tf">
-      <button @click="goResult">결과보러 가기</button>
+    <div class="btn">
+      <button @click="goResult" v-if="tf">결과보러 가기</button>
     </div>
     <div class="ad"></div>
   </div>
@@ -16,7 +15,7 @@ export default {
       text: "",
       result: null,
       str: "",
-      cnt: 0,
+      cnt: 4,
     };
   },
   computed: {
@@ -36,7 +35,7 @@ export default {
     else this.$router.push({ name: "test" });
   },
   mounted() {
-    // this.timeCount();
+    this.timeCount();
     if (this.result !== null) {
       let str = "";
       str += this.result[3] + this.result[7] + this.result[11] < 5 ? "I" : "E";
@@ -60,7 +59,7 @@ export default {
   },
   methods: {
     timeCount() {
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 4; i++) {
         setTimeout(() => {
           this.cnt--;
         }, (i + 1) * 1000);
@@ -87,8 +86,8 @@ export default {
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 button {
-  display: block;
-  height: 50px;
+  display: flex;
+  align-items: center;
   border-radius: 25px;
   background-color: #fff;
   border: 2px dashed #d8d8d8;
@@ -99,6 +98,7 @@ button {
   font-size: 20px;
   cursor: pointer;
   color: #202020;
+  padding-top: 17px;
 }
 button:hover {
   background-color: #ffa3a3;
@@ -116,40 +116,16 @@ button:hover {
 }
 
 .ad {
-  margin: 20px;
-  width: 300px;
+  margin-top: 20px;
+  width: 100%;
   height: 300px;
   background-color: gray;
 }
-/* 
-.text {
-  font-size: 20px;
-  min-width: 11px;
-  white-space: nowrap;
-  margin: 0;
-  color: transparent;
-  transform: translate(-50%, -50%);
-}
 
-.text::before {
-  content: "당신과 어울리는 음료를 만드는 중...";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: black;
-  overflow: hidden;
-  border-right: 1px solid black;
-  animation: typing 3s steps(16);
+.btn {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin: 20px;
 }
-
-@keyframes typing {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
-} */
 </style>

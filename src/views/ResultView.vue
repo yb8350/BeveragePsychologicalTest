@@ -273,6 +273,9 @@ mark {
   border-radius: 50%;
   margin-bottom: 10px;
 }
+.combi__desc div {
+  width: 204px;
+}
 
 /* 나와 같은 유형의 음료는? */
 .type__title {
@@ -399,7 +402,10 @@ footer {
   }
 
   .combi__desc {
-    justify-content: space-between;
+    justify-content: center;
+  }
+  .combi__good {
+    margin-bottom: 40px;
   }
 
   .title img {
@@ -420,13 +426,6 @@ footer {
   .book::after {
     width: calc(100% - 60px);
     bottom: -68px;
-  }
-
-  .combi__desc {
-    flex-direction: column;
-  }
-  .combi__good {
-    margin-bottom: 40px;
   }
 
   .share__type a {

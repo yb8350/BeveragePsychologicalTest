@@ -146,7 +146,7 @@ export default {
   background-color: #f8f4f0;
   max-width: 600px;
   width: 90%;
-  margin: 20px auto;
+  margin: 40px auto;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
@@ -178,7 +178,7 @@ export default {
   background-color: #ffa3a3;
   height: 16px;
   border-radius: 10px;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .coffee {
@@ -186,7 +186,7 @@ export default {
   position: absolute;
   top: -10px;
   left: calc(100% / 12 - 10px);
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .choice {
@@ -229,6 +229,7 @@ export default {
   width: 100%;
   word-break: keep-all;
   padding: 10px;
+  color: #202020;
 }
 .btnset button:hover {
   background-color: #ffa3a3;

@@ -84,7 +84,7 @@
 
     <!-- 다시하기 -->
     <article class="btn-group">
-      <button class="btn btn--replay">다시하기</button>
+      <button class="btn btn--replay" @click="onClickReplay">다시하기</button>
       <button class="btn btn--other">다른 유형 보러가기</button>
     </article>
     <footer>copyright (C) 앞잡이들</footer>
@@ -107,6 +107,11 @@ export default {
         { type: "twitter", link: "javascript:void(0)" },
       ],
     };
+  },
+  methods: {
+    onClickReplay() {
+      this.$router.push("/");
+    },
   },
   created() {
     this.res = this.$route.params.res;

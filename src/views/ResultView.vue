@@ -72,7 +72,7 @@
         <span><mark>내 결과 공유하기</mark></span>
       </h2>
       <div class="share__type">
-        <a v-for="type in shareType" :key="type.type" :href="type.link">
+        <a v-for="type in shareType" :key="type.type" @click="type.link">
           <img
             :src="require(`@/assets/img/result/icon-${type.type}.png`)"
             alt=""
@@ -84,7 +84,7 @@
 
     <!-- 다시하기 -->
     <article class="btn-group">
-      <button class="btn btn--replay">다시하기</button>
+      <button class="btn btn--replay" @click="onClickReplay">다시하기</button>
       <button class="btn btn--other">다른 유형 보러가기</button>
     </article>
     <footer>copyright (C) 앞잡이들</footer>
@@ -101,12 +101,51 @@ export default {
       ratio: 33.3,
       shareType: [
         { type: "link", link: "javascript:void(0)" },
-        { type: "kakao", link: "javascript:void(0)" },
+        { type: "kakao", link: this.kakaoTest },
         { type: "instagram", link: "javascript:void(0)" },
         { type: "facebook", link: "javascript:void(0)" },
         { type: "twitter", link: "javascript:void(0)" },
       ],
     };
+  },
+  methods: {
+    onClickReplay() {
+      this.$router.push("/");
+    },
+    kakaoTest() {
+      let desc = "";
+      this.addHash.forEach((tag) => {
+        desc += tag + " ";
+      });
+      this.$kakao.Link.sendDefault({
+        objectType: "feed",
+        content: {
+          title: this.print.title,
+          description: desc,
+          imageUrl: `https://bit.ly/BTest_${this.res}`,
+          link: {
+            mobileWebUrl: "https://beverage-test.netlify.app/",
+            webUrl: "https://beverage-test.netlify.app/",
+          },
+        },
+        buttons: [
+          {
+            title: "자세히 보기",
+            link: {
+              mobileWebUrl: `https://beverage-test.netlify.app/result/${this.res}`,
+              webUrl: `https://beverage-test.netlify.app/result/${this.res}`,
+            },
+          },
+          {
+            title: "테스트 하기",
+            link: {
+              mobileWebUrl: "https://beverage-test.netlify.app/",
+              webUrl: "https://beverage-test.netlify.app/",
+            },
+          },
+        ],
+      });
+    },
   },
   created() {
     this.res = this.$route.params.res;
@@ -147,6 +186,10 @@ export default {
 }
 .toTop img {
   width: 20px;
+}
+
+a img {
+  cursor: pointer;
 }
 
 mark {
@@ -352,6 +395,7 @@ mark {
   border: 2px dashed #d8d8d8;
   font-size: 30px;
   color: #202020;
+  cursor: pointer;
 }
 .btn.btn--replay {
 }

@@ -1,24 +1,26 @@
-# beverage
+> 개발 진행중인 프로젝트입니다!
 
-## Project setup
-```
-npm install
-```
+<br />
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 📍 프로젝트 소개
+<div align="center">
+  
+  <h3>나는 어떤 음료일까?</h3>
+  <b>음료로 알아보는 나의 성격!<b>
+  <br />
+  <br />
+    
+  [테스트 하러 가기](https://beverage-test.netlify.app/)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+</div>
+<br />
 
-### Lints and fixes files
-```
-npm run lint
-```
+> 테스트를 통해 나는 무슨 음료인지 알아보자!
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<br />
+
+## 📍 기술 스택
+
+## 📍 주요기능 동작 GIF
+    
+## 📍 팀원 소개

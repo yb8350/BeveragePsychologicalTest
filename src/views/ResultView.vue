@@ -87,7 +87,7 @@
       <button class="btn btn--replay" @click="onClickReplay">다시하기</button>
       <button class="btn btn--other">다른 유형 보러가기</button>
     </article>
-    <footer>copyright (C) 앞잡이들</footer>
+    <footer>copyright ⓒ FRoM</footer>
   </div>
 </template>
 

@@ -30,7 +30,7 @@
       </article>
     </div>
     <!-- FooterView -->
-    <footer>copyrigth (C) 앞잡이들</footer>
+    <footer>copyright ⓒ FRoM</footer>
   </div>
 </template>
 
